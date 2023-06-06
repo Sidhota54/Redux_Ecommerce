@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { add, remove } from "../store/cartSlice";
 import { fetchProducts } from '../store/productSlice';
 import { STATUSES } from '../store/productSlice';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
     const dispatch = useDispatch();
@@ -33,26 +34,25 @@ const Products = () => {
     }
     if (productData === STATUSES.ERROR) {
         return (
-           <h2 className="text-red-500 text-md ">Something went wrong! </h2>
+            <h2 className="text-red-500 text-md ">Something went wrong! </h2>
         )
     }
 
     return (
         <div className='flex flex-wrap justify-center gap-5 '>
-            {
-
-            }
             {productData?.data?.map((product) => {
                 return (
-                    <div key={product?.id} className='bg-white rounded-2xl max-w-[280px] w-full p-4 space-y-4 flex flex-col justify-between transform transition duration-500 hover:scale-105'>
-                        <img className='object-contain w-full h-[200px]' src={product?.image} alt='' />
-                        <h4 className='font-semibold line-clamp-2 '>{product?.title}</h4>
-                        <h5 className='font-medium '>${product?.price}</h5>
-                        {productOncart.includes(product) ?
-                            <button onClick={() => handleRemove(product.id)} className='px-4 py-2 bg-red-500 text-sm font-mono text-white font-semibold'>Remove</button> :
-                            <button onClick={() => handleAdd(product)} className='px-4 py-2 bg-yellow-300 text-sm font-mono'>Add To cart</button>
-                        }
-                    </div>
+                    <Link className='max-w-[280px] w-full ' to={`/Product/${product?.id}`}>
+                        <div key={product?.id} className='bg-white rounded-2xl h-full p-4 space-y-4 flex flex-col justify-between transform transition duration-500 hover:scale-105'>
+                            <img className='object-contain w-full h-[200px]' src={product?.image} alt='' />
+                            <h4 className='font-semibold line-clamp-2 '>{product?.title}</h4>
+                            <h5 className='font-medium '>${product?.price}</h5>
+                            {productOncart.includes(product) ?
+                                <button onClick={() => handleRemove(product.id)} className='px-4 py-2 bg-red-500 text-sm font-mono text-white font-semibold'>Remove</button> :
+                                <button onClick={() => handleAdd(product)} className='px-4 py-2 bg-yellow-300 text-sm font-mono'>Add To cart</button>
+                            }
+                        </div>
+                    </Link>
                 )
             })}
 
