@@ -9,10 +9,10 @@ import Loading from './Loader/Loading';
 const Products = () => {
     const dispatch = useDispatch();
     const productOncart = useSelector((state) => state.cart);
-    const productData = useSelector((state) => state.product)
+    const productData = useSelector((state) => state.product);
 
     const handleAdd = (product) => {
-        dispatch(add(product))
+        dispatch(add(product));
     }
     useEffect(() => {
         dispatch(fetchProducts());
