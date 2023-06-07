@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import Loading from '../../Components/Loader/Loading';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { productById } from '../../store/productSlice';
+
 
 const Product = () => {
     const { id } = useParams();
-    // const dispatch = useDispatch();
-    // const productDetails = dispatch(productById(id));
     const [productDetails, setProductDetails] = useState(null);
     useEffect(() => {
         const fetchProductById = async (productId) => {
