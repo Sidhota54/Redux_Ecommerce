@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-300 flex justify-center;
+  @apply bg-slate-300 ;
 }
-.App{
-  @apply max-w-[1380px] w-full lg:px-20 md:px-10 px-5;
+main{
+  @apply max-w-[1380px] min-h-[90vh] w-full lg:px-20 md:px-10 px-5 flex justify-center;
+}
+.box-padding{
+  @apply 2xl:px-60 xl:px-40 lg:px-20 md:px-10  px-5
 }
 

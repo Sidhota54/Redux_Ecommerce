@@ -29,12 +29,11 @@ const Product = () => {
         return (<Loading />)
     }
     return (
-        <section className='bg-white p-8 grid md:grid-cols-2 grid-cols-1 gap-10 h-full w-full rounded-2xl mb-20 '>
+        <section className='bg-white my-10 p-8 grid md:grid-cols-2 grid-cols-1 gap-10 h-full w-full rounded-2xl mb-20 '>
             <img className=' m-auto max-h-[300px] object-contain' src={productDetails?.image}></img>
             <div className=''>
                 <h1 className='text-3xl font-semibold mb-5 font-serif'>{productDetails?.title}</h1>
                 <p className='text-md font-serif mb-3'>{productDetails?.description}</p>
-
                 <h3 className='text-lg font-serif mb-2'><strong>category:&nbsp;</strong>{productDetails?.category}</h3>
                 <h5 className='text-lg font-serif mb-2'><strong>Price: &nbsp;</strong>
                     <span className='font-mono text-xl'>{productDetails?.price}$</span>
