@@ -8,7 +8,7 @@ const Navbar = () => {
   const items = useSelector((state) => state.cart); //get data from store => cart
 
   return (
-    <nav className='flex justify-between py-2 box-padding bg-gray-600'>
+    <nav className='flex justify-between py-2 w-full box-padding bg-gray-600'>
       <Link to="/">
         <img className='w-[250px] py-2' src={Reactstorefrontlogo} alt="react-storefront-logo" />
       </Link>
