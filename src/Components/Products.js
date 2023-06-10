@@ -39,7 +39,7 @@ const Products = () => {
                         <Link to={`/Product/${product?.id}`}> <img className='object-contain w-full h-[200px]' src={product?.image} alt='' /></Link>
                         <h4 className='font-semibold line-clamp-2 '>{product?.title}</h4>
                         <h5 className='font-medium '>${product?.price}</h5>
-                        {productOncart.includes(product) ?
+                        {productOncart?.find(cartItem => cartItem?.id === product?.id) ?
                             <button onClick={() => handleRemove(product.id)} className='px-4 py-2 bg-red-500 text-sm font-mono text-white font-semibold'>Remove</button> :
                             <button onClick={() => handleAdd(product)} className='px-4 py-2 bg-yellow-300 text-sm font-mono'>Add To cart</button>
                         }

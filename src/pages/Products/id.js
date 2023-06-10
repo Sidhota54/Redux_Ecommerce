@@ -42,7 +42,7 @@ const Product = () => {
                     <div><strong>Rating: &nbsp;</strong><span className='font-mono text-xl'>{productDetails?.rating?.rate}/5</span></div>
                     <div><strong>Available: &nbsp;</strong><span className='font-mono text-xl'>{productDetails?.rating?.count}</span></div>
                 </div>
-                {productOncart.includes(productDetails) ?
+                {productOncart?.find(cartItem => cartItem?.id === productDetails?.id) ?
                     <button onClick={() => handleRemove(productDetails?.id)} className='w-full  px-4 py-2 bg-red-500 text-sm font-mono text-white font-semibold'>Remove</button> :
                     <button onClick={() => handleAdd(productDetails)} className='px-4 py-2 w-full bg-yellow-300 text-sm font-mono'>Add To cart</button>
                 }

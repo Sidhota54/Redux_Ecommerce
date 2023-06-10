@@ -33,21 +33,19 @@ const Cart = () => {
                 {productsOnCart?.map((product) => {
                     return (
                         <li key={product?.id} className='flex sm:flex-row  sm:justify-between gap-5 bg-white md:px-10  md:py-4 p-4 rounded-lg shadow-sm hover:shadow-xl transform transition duration-500 hover:scale-110'>
-                           <Link to={`/products/${product?.id}`}><img className='w-[80px] h-[80px] my-auto object-contain ' src={product?.image} alt={product?.title} /></Link> 
+                            <Link to={`/product/${product?.id}`}><img className='w-[80px] h-[80px] my-auto object-contain ' src={product?.image} alt={product?.title} /></Link>
                             <div className='flex flex-col w-full my-auto text-md font-medium text-center'>
-                                <h4 className='font-semibold md:text-xl text-md mb-5 font-serif md:line-clamp-2 line-clamp-3'>  <Link to={`/products/${product?.id}`}>{product?.title}</Link></h4>
+                                <h4 className='font-semibold md:text-xl text-md mb-5 font-serif md:line-clamp-2 line-clamp-3'>  <Link to={`/product/${product?.id}`}>{product?.title}</Link></h4>
                                 <h5 className='md:text-lg text-sm font-serif mb-2'><strong>Price: &nbsp;</strong>
                                     <span className='font-mono md:text-xl text-md'>{product?.price}$</span>
                                 </h5>
                                 <div className='my-auto  sm:hidden block'><button onClick={() => handleRemove(product.id)} className='px-4 py-1 rounded-md text-md font-semibold bg-red-500 text-white'> Remove</button></div>
-
                             </div>
                             <div className='my-auto  sm:block hidden '><button onClick={() => handleRemove(product.id)} className='px-4 py-1 rounded-md text-md font-semibold bg-red-500 text-white'> Remove</button></div>
                         </li>
                     )
                 })}
             </ul>
-
             <div className=' mt-10 md:px-10 md:py-4 py-8 px-4 bg-white rounded-lg justify-between  shadow-sm min-w-[100%] flex sm:flex-row  sm:gap-10 gap-5  items-center text-center'>
                 <h2 className=' font-semibold md:text-xl text-md  font-serif '> Total Price:- </h2>
                 <div><span className='font-mono md:text-xl text-md'>{totalPrice}$</span> </div>
