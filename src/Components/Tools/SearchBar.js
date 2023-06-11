@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../store/productSlice';
 import { Link } from 'react-router-dom';
 
-const SearchBar = () => {
+const SearchBar = ({ productData }) => {
   const [query, setQuery] = useState('');
-  const dispatch = useDispatch();
-  const productData = useSelector((state) => state.product);
   const [results, setResults] = useState([]);
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-  useEffect(() => {
     if (query) {
-      if (productData?.data) {
-        const resultDetails = productData?.data?.filter((product) => product?.title?.toLowerCase().includes(query.toLowerCase()));
+      if (productData) {
+        const resultDetails = productData?.filter((product) => product?.title?.toLowerCase().includes(query.toLowerCase()));
         setResults(resultDetails);
       }
     }
@@ -37,7 +30,6 @@ const SearchBar = () => {
           })}
         </ul> : null
       }
-
     </div>
   )
 }
