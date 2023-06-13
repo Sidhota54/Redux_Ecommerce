@@ -28,8 +28,6 @@ const Product = () => {
     if (productDetails === null) {
         return (<Loading />)
     }
-    // const rating = Math.random() * 4 ; 
-    console.log(productDetails);
     return (
         <section className='bg-white my-20 p-8 grid md:grid-cols-2 grid-cols-1 gap-10 h-fitss w-full rounded-2xl mb-20 '>
             <img className=' m-auto max-h-[300px] object-contain' src={productDetails?.thumbnail}></img>
