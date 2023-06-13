@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const SearchBar = ({ productData }) => {
+const SearchBar = ({ }) => {
   const [query, setQuery] = useState('');
+  const [productData, setProductData] = useState([]);
   const [results, setResults] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios.get(`https://dummyjson.com/products?limit=100`).then((response) => {
+      setProductData(response?.data?.products);
+
+    }).catch(error => {
+      setError(error);
+    });
+  }, [])
+
   useEffect(() => {
     if (query) {
       if (productData) {

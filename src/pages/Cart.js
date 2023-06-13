@@ -33,7 +33,7 @@ const Cart = () => {
                 {productsOnCart?.map((product) => {
                     return (
                         <li key={product?.id} className='flex sm:flex-row  sm:justify-between gap-5 bg-white md:px-10  md:py-4 p-4 rounded-lg shadow-sm hover:shadow-xl transform transition duration-500 hover:scale-110'>
-                            <Link to={`/product/${product?.id}`}><img className='w-[80px] h-[80px] my-auto object-contain ' src={product?.image} alt={product?.title} /></Link>
+                            <Link to={`/product/${product?.id}`}><img className='w-[80px] h-[80px] my-auto object-contain ' src={product?.thumbnail} alt={product?.title} /></Link>
                             <div className='flex flex-col w-full my-auto text-md font-medium text-center'>
                                 <h4 className='font-semibold md:text-xl text-md mb-5 font-serif md:line-clamp-2 line-clamp-3'>  <Link to={`/product/${product?.id}`}>{product?.title}</Link></h4>
                                 <h5 className='md:text-lg text-sm font-serif mb-2'><strong>Price: &nbsp;</strong>

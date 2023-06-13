@@ -11,7 +11,7 @@ const Product = () => {
     const [productDetails, setProductDetails] = useState(null);
     useEffect(() => {
         const fetchProductById = async (productId) => {
-            const res = await fetch(`https://fakestoreapi.com/products/${productId}`)
+            const res = await fetch(`https://dummyjson.com/products/${productId}`)
             const data = await res.json();
             setProductDetails(data);
         }
@@ -28,9 +28,11 @@ const Product = () => {
     if (productDetails === null) {
         return (<Loading />)
     }
+    // const rating = Math.random() * 4 ; 
+    console.log(productDetails);
     return (
-        <section className='bg-white my-10 p-8 grid md:grid-cols-2 grid-cols-1 gap-10 h-full w-full rounded-2xl mb-20 '>
-            <img className=' m-auto max-h-[300px] object-contain' src={productDetails?.image}></img>
+        <section className='bg-white my-20 p-8 grid md:grid-cols-2 grid-cols-1 gap-10 h-fitss w-full rounded-2xl mb-20 '>
+            <img className=' m-auto max-h-[300px] object-contain' src={productDetails?.thumbnail}></img>
             <div className=''>
                 <h1 className='text-3xl font-semibold mb-5 font-serif'>{productDetails?.title}</h1>
                 <p className='text-md font-serif mb-3'>{productDetails?.description}</p>
@@ -39,8 +41,8 @@ const Product = () => {
                     <span className='font-mono text-xl'>{productDetails?.price}$</span>
                 </h5>
                 <div className='grid grid-cols-2 gap-10 text-lg font-serif mb-5'>
-                    <div><strong>Rating: &nbsp;</strong><span className='font-mono text-xl'>{productDetails?.rating?.rate}/5</span></div>
-                    <div><strong>Available: &nbsp;</strong><span className='font-mono text-xl'>{productDetails?.rating?.count}</span></div>
+                    <div><strong>Rating: &nbsp;</strong><span className='font-mono text-xl'>{productDetails?.rating}/5</span></div>
+                    <div><strong>Available: &nbsp;</strong><span className='font-mono text-xl'>{productDetails?.stock}</span></div>
                 </div>
                 {productOncart?.find(cartItem => cartItem?.id === productDetails?.id) ?
                     <button onClick={() => handleRemove(productDetails?.id)} className='w-full  px-4 py-2 bg-red-500 text-sm font-mono text-white font-semibold'>Remove</button> :

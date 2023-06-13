@@ -36,13 +36,13 @@ const Products = () => {
         <section>
             <div className='flex  sm:flex-row flex-col gap-2  justify-between p-5'>
                 <h3 className='font-semibold text-2xl mt-2 mb-5 '>Products</h3>
-                <SearchBar productData={productData?.data} />
+                <SearchBar />
             </div>
             <div className='flex flex-wrap justify-center gap-5 mb-20 '>
-                {productData?.data?.map((product) => {
+                {productData?.data?.products?.map((product) => {
                     return (
                         <div key={product?.id} className='bg-white rounded-2xl max-w-[280px] w-full h-auto p-4 space-y-4 flex flex-col justify-between transform transition duration-500 hover:scale-105'>
-                            <Link to={`/Product/${product?.id}`}> <img className='object-contain w-full h-[200px]' src={product?.image} alt='' /></Link>
+                            <Link to={`/Product/${product?.id}`}> <img className='object-contain w-full h-[200px]' src={product?.thumbnail} alt='' /></Link>
                             <h4 className='font-semibold line-clamp-2 '>{product?.title}</h4>
                             <h5 className='font-medium '>${product?.price}</h5>
                             {productOncart?.find(cartItem => cartItem?.id === product?.id) ?
