@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const SearchBar = ({ }) => {
+const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [productData, setProductData] = useState([]);
   const [results, setResults] = useState([]);

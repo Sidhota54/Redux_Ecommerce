@@ -59,7 +59,6 @@ export const fetchProducts = createAsyncThunk('products/fetch', async () => {
 //             dispatch(setStatus(STATUSES.IDLE))
 //         }
 //         catch(err){
-//             console.log(err)
 //             dispatch(setStatus(STATUSES.ERROR))
 //         }
 //     }
